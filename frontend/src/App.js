@@ -53,7 +53,7 @@ function App() {
     );
   };
   return (
-    <Container className="col-5">
+    <Container>
       <Table striped bordered hover size="sm">
         <thead>
           <tr
