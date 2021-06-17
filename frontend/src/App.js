@@ -1,11 +1,15 @@
 import getWeek from './rotationService';
-import { Container, Table } from 'react-bootstrap';
+import { Container, Table, Alert } from 'react-bootstrap';
 function App() {
   const week = getWeek();
-
+  const date = new Date();
+  const month = date.toLocaleString('default', { month: 'long' });
+  const day = date.getDay();
+  const weekBegin = date.getDate() - day + 1;
+  const weekEnd = date.getDate() - day + 7;
   const Blue = () => {
     return (
-      <tr className="table-primary">
+      <tr className="table-info">
         <td>Blue</td>
         <td>A</td>
         <td>ABCD</td>
@@ -54,12 +58,15 @@ function App() {
   };
   return (
     <Container>
+      <Alert variant="primary" style={{ marginBottom: 0, borderRadius: 0 }}>
+        Office Schedule for the week of {month} {weekBegin} through {weekEnd}
+      </Alert>
       <Table striped bordered hover size="sm">
         <thead>
           <tr
             className={
               week === 1
-                ? 'table-primary'
+                ? 'table-info'
                 : week === 2
                 ? 'table-warning'
                 : week === 3
