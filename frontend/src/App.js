@@ -3,7 +3,6 @@ import { Container, Table, Alert } from 'react-bootstrap';
 function App() {
   const week = getWeek();
   const date = new Date();
-  const month = date.toLocaleString('default', { month: 'long' });
   const day = date.getDay();
   const weekEnd = date.getDate() - day + 7;
 
@@ -11,6 +10,8 @@ function App() {
     date.setHours(-24 * (day - 1));
     console.log(date);
   }
+  const month = date.toLocaleString('default', { month: 'long' });
+
   // const weekBegin = date.getDate() - day + 1;
 
   const Blue = () => {
@@ -65,8 +66,8 @@ function App() {
   return (
     <Container>
       <Alert variant="primary" style={{ marginBottom: 0, borderRadius: 0 }}>
-        Office Schedule for the week of {date.getMonth()} {date.getDate()}{' '}
-        through {weekEnd}
+        Office Schedule for the week of {month} {date.getDate()} through{' '}
+        {weekEnd}
       </Alert>
       <Table striped bordered hover size="sm">
         <thead>
