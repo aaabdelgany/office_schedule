@@ -5,8 +5,14 @@ function App() {
   const date = new Date();
   const month = date.toLocaleString('default', { month: 'long' });
   const day = date.getDay();
-  const weekBegin = date.getDate() - day + 1;
   const weekEnd = date.getDate() - day + 7;
+
+  if (day !== 1) {
+    date.setHours(-24 * (day - 1));
+    console.log(date);
+  }
+  // const weekBegin = date.getDate() - day + 1;
+
   const Blue = () => {
     return (
       <tr className="table-info">
@@ -59,7 +65,8 @@ function App() {
   return (
     <Container>
       <Alert variant="primary" style={{ marginBottom: 0, borderRadius: 0 }}>
-        Office Schedule for the week of {month} {weekBegin} through {weekEnd}
+        Office Schedule for the week of {month} {date.getDate()} blah through{' '}
+        {weekEnd}
       </Alert>
       <Table striped bordered hover size="sm">
         <thead>
