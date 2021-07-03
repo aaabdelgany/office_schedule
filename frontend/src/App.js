@@ -65,8 +65,8 @@ function App() {
   return (
     <Container>
       <Alert variant="primary" style={{ marginBottom: 0, borderRadius: 0 }}>
-        Office Schedule for the week of {month} {date.getDate()} through{' '}
-        {weekEnd}
+        Office Schedule for the week of {date.getMonth()} {date.getDate()}{' '}
+        through {weekEnd}
       </Alert>
       <Table striped bordered hover size="sm">
         <thead>
