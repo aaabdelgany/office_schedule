@@ -2,6 +2,7 @@ import getWeek from './rotationService';
 import { Container, Table, Alert } from 'react-bootstrap';
 function App() {
   const week = getWeek();
+  console.log(week);
   const date = new Date();
   const day = date.getDay();
   const weekEnd = date.getDate() - day + 7;
